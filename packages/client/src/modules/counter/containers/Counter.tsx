@@ -8,6 +8,10 @@ import { ClientCounter } from '../clientCounter';
 import { ServerCounter } from '../serverCounter';
 import { ReduxCounter } from '../reduxCounter';
 
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import { SingleDatePicker } from 'react-dates';
+
 interface CounterProps {
   t: TranslateFunction;
 }
@@ -22,6 +26,13 @@ const Counter = ({ t }: CounterProps) => (
           content: `${settings.app.name} - ${t('meta')}`
         }
       ]}
+    />
+    <SingleDatePicker
+      date={null} // momentPropTypes.momentObj or null
+      focused={null} // PropTypes.bool
+      onDateChange={(date: any) => {}}
+      onFocusChange={({ focused }: { focused: any }) => {}}
+      id="your_unique_id" // PropTypes.string.isRequired,
     />
     <ServerCounter />
     <ReduxCounter />
